@@ -33,6 +33,7 @@ const app = Vue.createApp({
     },
   },
   computed: {
+    // a way to define properties that depend on other data
     filteredBooks() {
       return this.books.filter((book) => book.isFav);
     },
