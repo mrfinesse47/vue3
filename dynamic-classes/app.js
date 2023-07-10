@@ -1,6 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
+      showBooks: true,
       books: [
         {
           title: 'name of the wind',
