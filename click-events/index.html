@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3.0.2/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{title}} - {{author}} - {{age}}</p>
+      <!-- v-on is an example of a directive -->
+      <!-- <button v-on:click="age++">Increase Age</button>
+      <button v-on:click="age--">Decrease Age</button> -->
+      <!-- instead of v-on we can replace that with a @ symbol -->
+      <button @click="age++">Increase Age</button>
+      <button @click="age--">Decrease Age</button>
+      <div @click="changeTitle('oath bringer')">Something Else</div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
