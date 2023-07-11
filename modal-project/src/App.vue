@@ -4,9 +4,6 @@
     <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
   </div>
   <div>
-    <!-- <button @click.right="toggleModal">Open Modal</button>
-    an example of a click modifies .right will trigger the event on a right mouse click -->
-    <!-- <button @click.shift="toggleModal">Open Modal</button> -->
     <button @click.alt="toggleModal">Open Modal (alt/option)</button>
   </div>
 </template>
