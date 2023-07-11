@@ -12,10 +12,6 @@ export default {
     };
   },
   mounted() {
-    // a lifecycle hook
-    // https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
-    console.log('component mounted');
-    // start timer
     setTimeout(() => {
       this.showBlock = true;
       this.startTimer();
@@ -36,7 +32,8 @@ export default {
     },
     stopTimer() {
       clearInterval(this.timer);
-      console.log('reaction time', this.reactionTime);
+      //console.log('reaction time', this.reactionTime);
+      this.$emit('end', this.reactionTime);
     },
   },
 };
@@ -50,5 +47,8 @@ export default {
   text-align: center;
   padding: 100px 0;
   margin: 40px auto;
+}
+.block:hover {
+  cursor: pointer;
 }
 </style>
