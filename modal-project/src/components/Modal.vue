@@ -2,11 +2,8 @@
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
       <slot>default content</slot>
-      <!-- default content only shows if we pass nothing in to the slot -->
       <div class="actions">
         <slot name="links"></slot>
-        <!-- see parent for the named slot -->
-        <!-- these are useful if you have a desired structure of your component -->
       </div>
     </div>
   </div>
