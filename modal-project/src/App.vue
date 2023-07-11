@@ -10,8 +10,19 @@
       <p>Sign Up Today</p>
     </Modal>
   </div>
+  <div v-if="showModalTwo">
+    <Modal @close="toggleModalTwo">
+      <h1>Hello Vue Two</h1>
+      <p>Sign Up Today Two</p>
+    </Modal>
+  </div>
   <div>
-    <button @click.alt="toggleModal">Open Modal (alt/option)</button>
+    <div>
+      <button @click.alt="toggleModal">Open Modal (alt/option)</button>
+    </div>
+    <div>
+      <button @click="toggleModalTwo">Open Modal 2</button>
+    </div>
   </div>
 </template>
 
@@ -24,14 +35,16 @@ export default {
   data() {
     return {
       title: 'My Vue App',
-      header: 'Sign Up For The Giveaway',
-      text: 'Grab Your Ninja Swag For Halfprice!',
       showModal: false,
+      showModalTwo: false,
     };
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
     },
   },
 };
