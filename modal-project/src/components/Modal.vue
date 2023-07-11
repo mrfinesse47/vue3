@@ -1,5 +1,7 @@
 <template>
-  <div class="backdrop" @click="closeModal">
+  <div class="backdrop" @click.self="closeModal">
+    <!-- click events will not bubble from children -->
+    <!-- this makes it so only clicking the backdrop will close the modal -->
     <div class="modal" :class="{ sale: theme === 'sale' }">
       <h1>{{ header }}</h1>
       <p>{{ text }}</p>
