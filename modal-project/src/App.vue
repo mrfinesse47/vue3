@@ -1,7 +1,14 @@
 <template>
   <h1>{{ title }}</h1>
   <div v-if="showModal">
-    <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
+    <Modal theme="sale" @close="toggleModal">
+      <template v-slot:links>
+        <a href="#">Sign Up Now</a>
+        <a href="#">More Info</a>
+      </template>
+      <h1>Hello Vue</h1>
+      <p>Sign Up Today</p>
+    </Modal>
   </div>
   <div>
     <button @click.alt="toggleModal">Open Modal (alt/option)</button>
