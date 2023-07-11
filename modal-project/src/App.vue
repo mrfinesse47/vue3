@@ -1,14 +1,14 @@
 <template>
   <h1>{{ title }}</h1>
-  <div>
-    <input type="text" ref="name" />
-    <button @click="handleClick">click me</button>
-  </div>
+  <Modal />
 </template>
 
 <script>
+import Modal from './components/Modal.vue';
+
 export default {
   name: 'App',
+  components: { Modal },
   data() {
     return {
       title: 'My Vue App',
@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
