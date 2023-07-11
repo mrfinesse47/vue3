@@ -1,6 +1,11 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal />
+  <!-- <Modal
+    header="Sign Up For The Giveaway"
+    text="Grab Your Ninja Swag For Halfprice!"
+  /> -->
+  <Modal :header="header" :text="text" theme="sale" />
+  <!-- binding to data instead -->
 </template>
 
 <script>
@@ -12,6 +17,8 @@ export default {
   data() {
     return {
       title: 'My Vue App',
+      header: 'Sign Up For The Giveaway',
+      text: 'Grab Your Ninja Swag For Halfprice!',
     };
   },
   methods: {

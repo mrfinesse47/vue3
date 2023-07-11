@@ -1,13 +1,17 @@
 <template>
   <div class="backdrop">
-    <div class="modal">
-      <p>Modal Content</p>
+    <div class="modal" :class="{ sale: theme === 'sale' }">
+      <h1>{{ header }}</h1>
+      <p>{{ text }}</p>
     </div>
   </div>
 </template>
+<script>
+export default {
+  props: ['header', 'text', 'theme'],
+};
+</script>
 <style scoped>
-/* use scoped to prevent styles from overriding globally */
-/* you can inspect the css to see additional data attribute */
 .modal {
   width: 400px;
   padding: 20px;
@@ -26,5 +30,12 @@ h1 {
   color: #03cfb4;
   border: none;
   padding: 0;
+}
+.sale {
+  background-color: crimson;
+  color: white;
+}
+.sale h1 {
+  color: white;
 }
 </style>
