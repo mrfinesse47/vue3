@@ -1,24 +1,6 @@
-<template>
-  <form>
-    <label>Email:</label>
-    <input type="email" required v-model="email" />
-    <label>Password:</label>
-    <input type="password" required v-model="password" />
-    <label>Role:</label>
-    <select v-model="role">
-      <option value="developer">Web Developer</option>
-      <option value="designer">Web Designer</option>
-    </select>
-  </form>
+<!-- an array of checkboxes -->
 
-  <div class="terms">
-    <input type="checkbox" v-model="terms" required />
-    <label>Accept terms and conditions</label>
-  </div>
-
-  <!-- an array of checkboxes -->
-
-  <!-- <div class="terms">
+<!-- <div class="terms">
     <input type="checkbox" value="Kevin" v-model="names" />
     <label>Kevin</label>
   </div>
@@ -30,20 +12,61 @@
     <input type="checkbox" value="Natalie" v-model="names" />
     <label>Natalie</label>
   </div> -->
-  <p>email: {{ email }}</p>
-  <p>password: {{ password }}</p>
-  <p>role: {{ role }}</p>
-  <p>terms: {{ terms }}</p>
+
+<template>
+  <form>
+    <label>Email:</label>
+    <input type="email" v-model="email" required />
+
+    <label>Password:</label>
+    <input type="password" v-model="password" required />
+
+    <label>Role:</label>
+    <select v-model="role">
+      <option value="developer">Web Developer</option>
+      <option value="designer">Web Designer</option>
+    </select>
+
+    <label>Skills (press enter to add):</label>
+    <input type="text" v-model="tempSkill" @keyup.enter="addSkill" />
+    <div v-for="skill in skills" :key="skill" class="pill">
+      {{ skill }}
+    </div>
+
+    <div class="terms">
+      <input type="checkbox" v-model="terms" required />
+      <label>Accept terms and conditions</label>
+    </div>
+  </form>
+
+  <p>Email: {{ email }}</p>
+  <p>Password: {{ password }}</p>
+  <p>Your role: {{ role }}</p>
+  <p>Terms accepted: {{ terms }}</p>
 </template>
+
 <script>
 export default {
   data() {
     return {
       email: '',
       password: '',
-      role: 'designer',
+      role: 'developer',
       terms: false,
+      skills: [],
+      tempSkill: '',
     };
+  },
+  methods: {
+    addSkill($event) {
+      console.log($event);
+      if (this.tempSkill) {
+        if (!this.skills.includes(this.tempSkill)) {
+          this.skills.push(this.tempSkill);
+        }
+        this.tempSkill = '';
+      }
+    },
   },
 };
 </script>
