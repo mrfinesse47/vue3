@@ -28,6 +28,7 @@ const routes = [
     path: '/jobs/:id',
     name: 'jobDetails',
     component: JobsDetailsView,
+    props: true,
   },
 ];
 
