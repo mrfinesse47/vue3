@@ -1,7 +1,8 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link :to="{ name: 'about' }">About</router-link>
+    <router-link :to="{ name: 'about' }">About</router-link> |
+    <router-link :to="{ name: 'jobs' }">Jobs</router-link>
     <!-- can databind as well, the benefit to this is if the routes are dynamic-->
   </nav>
   <router-view />
