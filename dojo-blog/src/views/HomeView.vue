@@ -1,38 +1,39 @@
-<!--  @ 14:25 -->
-
 <template>
   <div class="home">
     home
 
-    <p ref="p">My Name is: {{ name }}</p>
-    <p>And my age is: {{ age }}</p>
-    <button @click="handelClick">Click Me</button>
-    <button @click="age++">Add one to age</button>
-    <input type="text" v-model="name" />
-    <!-- outside in the template we dont need .value -->
+    <p ref="p">My Name is: {{ ninjaOne.name }}</p>
+    <p>And my age is: {{ ninjaOne.age }}</p>
+    <button @click="updateNinjaOne">update 1</button>
+    <h2>Reactive</h2>
+    <p>{{ ninjaTwo.name }} -- {{ ninjaTwo.age }} -- {{ nameTwo }}</p>
+    <button @click="updateNinjaTwo">update 2</button>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 export default {
   name: 'HomeView',
   setup() {
-    // we have only used refs to get a template ref so far
+    const ninjaOne = ref({ name: 'mario', age: 30 })
+    const ninjaTwo = reactive({ name: 'luigi', age: 29 })
 
-    const name = ref('Mario')
-    // // when we use ref to surround a value it becomes reactive
-    // refs are pointers so we can assign to const
+    // we cant use primitives for reactive
 
-    const age = ref(30)
+    const nameTwo = reactive('yoshi')
 
-    const handelClick = () => {
-      // name = 'luigi'  fails to update the name in the template
-      name.value = 'luigi'
-      age.value = 36
+    const updateNinjaOne = () => {
+      ninjaOne.value.age = 40
     }
-    return { name, age, handelClick }
+    const updateNinjaTwo = () => {
+      ninjaTwo.age = 40
+      // we dont need to use .value in reactive
+      nameTwo = 'luigi'
+      // cannot uodate nameTwo since it is primitive
+    }
+    return { ninjaOne, updateNinjaOne, ninjaTwo, updateNinjaTwo, nameTwo }
   },
 }
 </script>
