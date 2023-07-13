@@ -1,3 +1,5 @@
+<!--  @ 14:25 -->
+
 <template>
   <div class="home">
     home
@@ -24,7 +26,10 @@ export default {
     const p = ref(null)
 
     const handelClick = () => {
-      console.log(p)
+      console.log(p, p.value)
+      // now you can manipulate the p.value add classes etc
+      p.value.classList.add('test')
+      p.value.textContent = 'hello ninjas'
     }
     return { name, age, handelClick, p }
   },
