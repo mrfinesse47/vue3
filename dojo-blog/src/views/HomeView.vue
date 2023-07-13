@@ -6,8 +6,10 @@
 
     <p ref="p">My Name is: {{ name }}</p>
     <p>And my age is: {{ age }}</p>
-
     <button @click="handelClick">Click Me</button>
+    <button @click="age++">Add one to age</button>
+    <input type="text" v-model="name" />
+    <!-- outside in the template we dont need .value -->
   </div>
 </template>
 
@@ -17,21 +19,20 @@ import { ref } from 'vue'
 export default {
   name: 'HomeView',
   setup() {
-    let name = 'Mario'
-    // important: these are not reactive values, so if they change the dom wont update
-    let age = 30
+    // we have only used refs to get a template ref so far
 
-    //  a refs example, we need to import the ref func
+    const name = ref('Mario')
+    // // when we use ref to surround a value it becomes reactive
+    // refs are pointers so we can assign to const
 
-    const p = ref(null)
+    const age = ref(30)
 
     const handelClick = () => {
-      console.log(p, p.value)
-      // now you can manipulate the p.value add classes etc
-      p.value.classList.add('test')
-      p.value.textContent = 'hello ninjas'
+      // name = 'luigi'  fails to update the name in the template
+      name.value = 'luigi'
+      age.value = 36
     }
-    return { name, age, handelClick, p }
+    return { name, age, handelClick }
   },
 }
 </script>
