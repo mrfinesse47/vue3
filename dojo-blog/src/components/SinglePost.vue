@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h3>
+    <h4>{{ post.title }}</h4>
+    <p>
       {{ snippet }}
-    </h3>
+    </p>
   </div>
 </template>
 
@@ -11,7 +12,7 @@ import { computed } from 'vue'
 
 export default {
   setup(props) {
-    const snippet = computed(() => props.post.body.substring(0, 3) + '....')
+    const snippet = computed(() => props.post.body.substring(0, 100) + '....')
     return { snippet }
   },
   props: ['post'],
